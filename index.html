@@ -4,10 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Cagealicious Demo</title>
+  <link rel="stylesheet" href="./cagealicious.css">
 </head>
-<body style="height: 100%; display: flex; justify-content: center; align-items: center;">
-  <h1 style="font-family: sans-serif">Type 'cage'</h1>
+<body style="height: 100%; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
+  <button class="add" style="z-index: 1000000">More cage</button>
   <script src="./cagealicious.js"></script>
+  <script>
+    document.querySelector('.add').onclick = Cagealicious.add;
+  </script>
 </body>
 </html>

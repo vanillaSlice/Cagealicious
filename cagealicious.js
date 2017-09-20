@@ -1,84 +1,75 @@
-(() => {
+'use strict';
+
+const Cagealicious = (() => {
+
+  const baseURL = 'http://www.placecage.com';
+
+  const types = [
+    '',
+    '/g',
+    '/c',
+    '/gif',
+  ];
 
   const sizes = [
     100,
+    125,
     150,
+    175,
     200,
+    225,
     250,
-    300
+    275,
+    300,
   ];
 
-  const types = [
-    '/g',
-    '/c',
-    '',
-    '/gif'
-  ];
-
-  let addedCount = false;
-  let countElement;
   let count = 0;
+  let countElement;
 
-  function addCage() {
-    const img = document.createElement('img');
+  function add() {
+    // 1. Get random image url
     const type = types[Math.floor(Math.random() * types.length)];
     const size = sizes[Math.floor(Math.random() * sizes.length)];
-    const url = `http://www.placecage.com${type}/${size}/${size}`;
+    const url = `${baseURL}${type}/${size}/${size}`;
+
+    // 2. Create the image at random position
+    const img = document.createElement('img');
+    img.className = 'cagealicious-img';
     img.setAttribute('src', url);
-    img.style.position = 'absolute';
+    img.setAttribute('alt', 'Nic Cage');
     img.style.top = `${Math.random() * (window.innerHeight - size)}px`;
     img.style.left = `${Math.random() * (window.innerWidth - size)}px`;
-    img.style.transition = 'all 0.1s linear';
+    img.onclick = add;
     document.body.appendChild(img);
 
-    img.onmouseover = function() {
-      var size = 1 + Math.round(Math.random() * 10) / 100;
-      var angle = Math.round(Math.random() * 20 - 10);
-      var result = "rotate(" + angle + "deg) scale(" + size + "," + size + ")";
-      this.style.transform = result;
-    };
-
-    img.onmouseout = function() {
-      var size = .9 + Math.round(Math.random() * 10) / 100;
-      var angle = Math.round(Math.random() * 6 - 3);
-      var result = "rotate(" + angle + "deg) scale(" + size + "," + size + ")";
-      this.style.transform = result;
-    };
-
-    count++;
-    if (!addedCount) {
+    // 3. Create count element if one does not already exist
+    if (!countElement) {
       countElement = document.createElement('p');
+      countElement.className = 'cagealicious-count';
       document.body.appendChild(countElement);
-      countElement.style.fontFamily = 'sans-serif';
-      countElement.style.fontWeight = '700';
-      countElement.style.color = 'red';
-      countElement.style.position = 'absolute';
-      countElement.style.bottom = '10px';
-      countElement.style.textAlign = 'center';
-      countElement.style.width = '100%';
-      countElement.style.fontSize = '36px';
-      countElement.style.zIndex = '999999';
-      addedCount = true;
-      document.querySelector('h1').remove();
     }
-    countElement.textContent = `${count} CAGES CREATED`;
+
+    // 4. Update count and count element
+    count++;
+    countElement.textContent = `${count} Cage${count > 1 ? '\'s' : ''} created`;
   }
 
-  document.addEventListener('click', (e) => {
-    if (e.target.tagName === 'IMG') {
-      addCage();
+  function replace() {
+    const imgs = document.body.querySelectorAll('img');
+    for (let i = 0; i < imgs.length; i++) {
+      const img = imgs[i];
+      const type = types[Math.floor(Math.random() * types.length)];
+      const width = img.width;
+      const height = img.height; 
+      const url = `${baseURL}${type}/${width}/${height}`;
+      img.setAttribute('src', url);
+      img.setAttribute('alt', 'Nic Cage');
     }
-  });
-  
-  const pressed = [];
-  const secretCode = 'cage';
+  }
 
-  window.addEventListener('keyup', event => {
-    pressed.push(event.key);
-    pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
-    if (pressed.join('').includes(secretCode)) {
-      addCage();
-    }
-  });
+  return {
+    add,
+    replace,
+  };
 
 })();

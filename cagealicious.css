@@ -1,0 +1,29 @@
+.cagealicious-img {
+  position: fixed;
+  -webkit-transition: all 0.1s linear;
+          transition: all 0.1s linear;
+}
+
+.cagealicious-img:nth-child(odd):hover {
+  -webkit-transform: rotate(10deg) scale(1.1);
+          transform: rotate(10deg) scale(1.1);
+}
+
+.cagealicious-img:nth-child(even):hover {
+  -webkit-transform: rotate(-10deg) scale(1.1);
+          transform: rotate(-10deg) scale(1.1);
+}
+
+.cagealicious-count {
+  font-family: sans-serif;
+  font-weight: bold;
+  font-size: 36px;
+  color: rgb(0, 255, 255);
+  text-shadow: 4px 4px 0 rgb(255, 0, 255);
+  position: fixed;
+  bottom: 10px;
+  text-align: center;
+  width: 100%;
+  z-index: 999999;
+  text-transform: uppercase;
+}
