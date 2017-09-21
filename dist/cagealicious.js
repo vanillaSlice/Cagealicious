@@ -26,7 +26,7 @@ const Cagealicious = (() => {
   let count = 0;
   let countElement;
 
-  function add() {
+  const add = () => {
     // 1. Get random image url
     const type = types[Math.floor(Math.random() * types.length)];
     const size = sizes[Math.floor(Math.random() * sizes.length)];
@@ -52,9 +52,9 @@ const Cagealicious = (() => {
     // 4. Update count and count element
     count++;
     countElement.textContent = `${count} Cage${count > 1 ? '\'s' : ''} created`;
-  }
+  };
 
-  function replace() {
+  const replace = () => {
     const imgs = document.body.querySelectorAll('img');
     for (let i = 0; i < imgs.length; i++) {
       const img = imgs[i];
@@ -65,7 +65,7 @@ const Cagealicious = (() => {
       img.setAttribute('src', url);
       img.setAttribute('alt', 'Nic Cage');
     }
-  }
+  };
 
   return {
     add,

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" style="height: 100%">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Cagealicious Demo</title>
-  <link rel="stylesheet" href="./cagealicious.css">
+  <title>Cagealicious</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./dist/cagealicious.min.css">
+  <link rel="stylesheet" href="./index.css">
 </head>
-<body style="height: 100%; display: flex; justify-content: center; align-items: center; flex-wrap: wrap;">
-  <button class="add" style="z-index: 1000000">More cage</button>
-  <script src="./cagealicious.js"></script>
-  <script>
-    document.querySelector('.add').onclick = Cagealicious.add;
-  </script>
+<body>
+  <button class="more-cage">More Cage</button>
+  <script src="./dist/cagealicious.min.js"></script>
+  <script src="./index.js"></script>
 </body>
 </html>
