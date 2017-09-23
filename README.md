@@ -14,12 +14,12 @@ cagealicious.js
 cagealicious.min.js
 ```
 
-* Add the css:
+* Add the stylesheet:
 ```
 <link rel="stylesheet" href="cagealicious.css">
 ```
 
-* Add the js:
+* Add the script:
 ```
 <script src="cagealicious.js"></script>
 ```
