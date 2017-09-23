@@ -2,7 +2,7 @@
 
 const Cagealicious = (() => {
 
-  const baseURL = 'http://www.placecage.com';
+  const baseURL = 'https://www.placecage.com';
 
   const types = [
     '',
@@ -60,7 +60,7 @@ const Cagealicious = (() => {
       const img = imgs[i];
       const type = types[Math.floor(Math.random() * types.length)];
       const width = img.width;
-      const height = img.height; 
+      const height = img.height;
       const url = `${baseURL}${type}/${width}/${height}`;
       img.setAttribute('src', url);
       img.setAttribute('alt', 'Nic Cage');
