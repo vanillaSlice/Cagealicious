@@ -55,16 +55,15 @@ const Cagealicious = (() => {
   };
 
   const replace = () => {
-    const imgs = document.body.querySelectorAll('img');
-    for (let i = 0; i < imgs.length; i++) {
-      const img = imgs[i];
+    const imgs = [].slice.call(document.body.querySelectorAll('img'));
+    imgs.forEach((img) => {
       const type = types[Math.floor(Math.random() * types.length)];
       const width = img.width;
       const height = img.height;
       const url = `${baseURL}${type}/${width}/${height}`;
       img.setAttribute('src', url);
       img.setAttribute('alt', 'Nic Cage');
-    }
+    });
   };
 
   return {
