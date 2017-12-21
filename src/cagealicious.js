@@ -1,5 +1,3 @@
-'use strict';
-
 const Cagealicious = (() => {
 
   const baseURL = 'https://www.placecage.com';

@@ -1,17 +1,14 @@
 .cagealicious-img {
   position: fixed;
-  -webkit-transition: all 0.1s linear;
-          transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
 
 .cagealicious-img:nth-child(odd):hover {
-  -webkit-transform: rotate(10deg) scale(1.1);
-          transform: rotate(10deg) scale(1.1);
+  transform: rotate(10deg) scale(1.1);
 }
 
 .cagealicious-img:nth-child(even):hover {
-  -webkit-transform: rotate(-10deg) scale(1.1);
-          transform: rotate(-10deg) scale(1.1);
+  transform: rotate(-10deg) scale(1.1);
 }
 
 .cagealicious-count {

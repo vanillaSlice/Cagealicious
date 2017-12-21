@@ -1,44 +1,29 @@
 'use strict';
 
-const Cagealicious = (() => {
+var Cagealicious = function () {
 
-  const baseURL = 'https://www.placecage.com';
+  var baseURL = 'https://www.placecage.com';
 
-  const types = [
-    '',
-    '/g',
-    '/c',
-    '/gif',
-  ];
+  var types = ['', '/g', '/c', '/gif'];
 
-  const sizes = [
-    100,
-    125,
-    150,
-    175,
-    200,
-    225,
-    250,
-    275,
-    300,
-  ];
+  var sizes = [100, 125, 150, 175, 200, 225, 250, 275, 300];
 
-  let count = 0;
-  let countElement;
+  var count = 0;
+  var countElement = void 0;
 
-  const add = () => {
+  var add = function add() {
     // 1. Get random image url
-    const type = types[Math.floor(Math.random() * types.length)];
-    const size = sizes[Math.floor(Math.random() * sizes.length)];
-    const url = `${baseURL}${type}/${size}/${size}`;
+    var type = types[Math.floor(Math.random() * types.length)];
+    var size = sizes[Math.floor(Math.random() * sizes.length)];
+    var url = '' + baseURL + type + '/' + size + '/' + size;
 
     // 2. Create the image at random position
-    const img = document.createElement('img');
+    var img = document.createElement('img');
     img.className = 'cagealicious-img';
     img.setAttribute('src', url);
     img.setAttribute('alt', 'Nic Cage');
-    img.style.top = `${Math.random() * (window.innerHeight - size)}px`;
-    img.style.left = `${Math.random() * (window.innerWidth - size)}px`;
+    img.style.top = Math.random() * (window.innerHeight - size) + 'px';
+    img.style.left = Math.random() * (window.innerWidth - size) + 'px';
     img.onclick = add;
     document.body.appendChild(img);
 
@@ -51,24 +36,23 @@ const Cagealicious = (() => {
 
     // 4. Update count and count element
     count++;
-    countElement.textContent = `${count} Cage${count > 1 ? '\'s' : ''} created`;
+    countElement.textContent = count + ' Cage' + (count > 1 ? '\'s' : '') + ' created';
   };
 
-  const replace = () => {
-    const imgs = [].slice.call(document.body.querySelectorAll('img'));
-    imgs.forEach((img) => {
-      const type = types[Math.floor(Math.random() * types.length)];
-      const width = img.width;
-      const height = img.height;
-      const url = `${baseURL}${type}/${width}/${height}`;
+  var replace = function replace() {
+    var imgs = [].slice.call(document.body.querySelectorAll('img'));
+    imgs.forEach(function (img) {
+      var type = types[Math.floor(Math.random() * types.length)];
+      var width = img.width;
+      var height = img.height;
+      var url = '' + baseURL + type + '/' + width + '/' + height;
       img.setAttribute('src', url);
       img.setAttribute('alt', 'Nic Cage');
     });
   };
 
   return {
-    add,
-    replace,
+    add: add,
+    replace: replace
   };
-
-})();
+}();
