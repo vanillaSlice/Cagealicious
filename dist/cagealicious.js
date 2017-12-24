@@ -36,7 +36,7 @@ var Cagealicious = function () {
 
     // 4. Update count and count element
     count++;
-    countElement.textContent = count + ' Cage' + (count > 1 ? '\'s' : '') + ' created';
+    countElement.textContent = count + ' Cage' + (count > 1 ? 's' : '') + ' created';
   };
 
   var replace = function replace() {
