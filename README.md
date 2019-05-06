@@ -2,7 +2,7 @@
 Flood your page with Nicolas Cage, inspired by [Cornify](http://www.cornify.com/). All images are pulled in from [https://www.placecage.com/](https://www.placecage.com/).
 
 ## Demo
-View [here](https://vanillaslice.github.io/Cagealicious/)
+View [here](https://cagealicious.mikelowe.xyz/)
 
 ## Usage
 
